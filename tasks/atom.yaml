@@ -1,0 +1,17 @@
+- name: Install Atom
+  homebrew_cask: name=atom state=present
+
+- name: Install atom packages
+  command: apm install {{ item }}
+  with_items:
+  - docblockr
+  - editorconfig
+  - linter
+  - linter-jshint
+  - aligner
+  - autocomplete-plus
+  - merge-conflicts
+  - minimap
+  - dash
+
+# vi:ft=ansible

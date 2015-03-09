@@ -1,0 +1,48 @@
+---
+
+- name: "Configure Mac OS X, install Dev & Ops tools"
+  hosts: mac
+  gather_facts: no
+  tasks:
+  - name: install tools
+    homebrew: name="{{item}}" state=latest
+    with_items:
+    - ansible
+    - bash-completion
+    - git
+    - libvirt
+    - nmap
+    - ssh-copy-id
+    - tmux
+    - tree
+    - wget
+    - curl
+    - xhyve
+    - qemu
+    - zmq
+    - node
+    - python
+    - go
+    - pv
+    - iperf3
+    - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
+
+  - name: install nice applications
+    homebrew_cask: name="{{item}}" state=present
+    with_items:
+    - skype
+    - google-chrome
+    - vlc
+    - virtualbox
+    - xca
+    - vagrant
+    - dockertoolbox
+    - atom
+    - bonjour-browser
+    - the-unarchiver
+    - XQuartz # Required t build virt-manager
+
+  - include: tasks/mac_preferences.yaml
+  - include: tasks/atom.yaml
+
+# vi:ft=ansible

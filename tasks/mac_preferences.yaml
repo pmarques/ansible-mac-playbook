@@ -1,0 +1,13 @@
+---
+
+- osx_defaults: domain="com.apple.screensaver" key="askForPassword" type="integer" value="1" state="present"
+- osx_defaults: domain="com.apple.screensaver" key="askForPasswordDelay" type="float" value="0" state="present"
+- osx_defaults: domain="com.apple.Terminal" key="Default Window Settings" type="string"  value="Homebrew" state="present"
+- osx_defaults: domain="com.apple.Terminal" key="Startup Window Settings" type="string"  value="Homebrew" state="present"
+# TODO: This is a complex value, how to do this?
+# - osx_defaults: domain="com.apple.Terminal" key="shellExitAction" type="integer"  value="0" state="present"
+# Dock configurations
+- osx_defaults: domain="com.apple.dock" key="autohide" type="bool"  value="1" state="present"
+- osx_defaults: domain="com.apple.dock" key="tilesize" type="float"  value="38" state="present"
+- osx_defaults: domain="com.apple.dock" key="largesize" type="float"  value="87" state="present"
+- osx_defaults: domain="com.apple.dock" key="magnification" type="bool"  value="1" state="present"

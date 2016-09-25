@@ -40,7 +40,7 @@
     - virtualbox
     - xca
     - vagrant
-    - dockertoolbox
+    - docker-toolbox
     - atom
     - bonjour-browser
     - the-unarchiver

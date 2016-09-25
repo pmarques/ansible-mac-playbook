@@ -29,6 +29,7 @@
     - autoconf
     - pkg-config
     - azure-cli
+    - p7zip
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state={{ pkg_state }}

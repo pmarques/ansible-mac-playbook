@@ -11,3 +11,10 @@
 - osx_defaults: domain="com.apple.dock" key="tilesize" type="float"  value="38" state="present"
 - osx_defaults: domain="com.apple.dock" key="largesize" type="float"  value="87" state="present"
 - osx_defaults: domain="com.apple.dock" key="magnification" type="bool"  value="1" state="present"
+# Enable zoom using scroll
+- osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="HIDScrollZoomModifierMask" type="integer" value="1048576" state="present"
+- osx_defaults: domain="com.apple.dock" key="mru-spaces" type="bool" value="false" state="present"
+# Enable 3-finger drag. (Moving with 3 fingers in any window "chrome" moves the window.)
+# TODO: This requires reboot to work...
+- osx_defaults: domain="com.apple.driver.AppleBluetoothMultitouch.trackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+- osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"

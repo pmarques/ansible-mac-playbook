@@ -28,6 +28,7 @@
     - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
     - autoconf
     - pkg-config
+    - azure-cli
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state=present

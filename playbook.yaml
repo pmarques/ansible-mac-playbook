@@ -26,6 +26,8 @@
     - pv
     - iperf3
     - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
+    - autoconf
+    - pkg-config
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state=present

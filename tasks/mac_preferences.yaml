@@ -18,3 +18,6 @@
 # TODO: This requires reboot to work...
 - osx_defaults: domain="com.apple.driver.AppleBluetoothMultitouch.trackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
 - osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+
+- name: "Reload dock settings"
+  command: "launchctl stop com.apple.Dock.agent"

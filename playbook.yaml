@@ -32,7 +32,7 @@
     - p7zip
 
   - name: install nice applications
-    homebrew_cask: name="{{item}}" state={{ pkg_state }}
+    homebrew_cask: name="{{item}}" state="present"
     with_items:
     - skype
     - google-chrome

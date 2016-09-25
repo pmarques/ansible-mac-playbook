@@ -1,7 +1,7 @@
 ---
 
 - name: "Install Google Cloud SDK"
-  homebrew_cask: name="{{item}}" state={{ pkg_state }} # update_homebrew=Yes
+  homebrew_cask: name="{{item}}" state="present" # update_homebrew=Yes
   with_items:
   - google-cloud-sdk
 

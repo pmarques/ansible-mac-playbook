@@ -44,7 +44,7 @@
     - atom
     - bonjour-browser
     - the-unarchiver
-    - XQuartz # Required t build virt-manager
+    - xquartz # Required t build virt-manager
 
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml

@@ -5,7 +5,7 @@
   gather_facts: no
   tasks:
   - name: install tools
-    homebrew: name="{{item}}" state=latest
+    homebrew: name="{{item}}" state={{ pkg_state }}
     with_items:
     - ansible
     - bash-completion
@@ -31,7 +31,7 @@
     - azure-cli
 
   - name: install nice applications
-    homebrew_cask: name="{{item}}" state=present
+    homebrew_cask: name="{{item}}" state={{ pkg_state }}
     with_items:
     - skype
     - google-chrome

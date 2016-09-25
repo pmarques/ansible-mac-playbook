@@ -47,5 +47,6 @@
 
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml
+  - include: tasks/gcloud.yaml
 
 # vi:ft=ansible

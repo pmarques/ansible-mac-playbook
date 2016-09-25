@@ -1,0 +1,13 @@
+---
+
+- name: "Install Google Cloud SDK"
+  homebrew_cask: name="{{item}}" state={{ pkg_state }} # update_homebrew=Yes
+  with_items:
+  - google-cloud-sdk
+
+- name: "Install Google Cloud SDK components"
+  command: "gcloud components install kubectl"
+
+- name: "Update Google Cloud SDK components"
+  command: "gcloud components update"
+  when: pkg_state == "latest"

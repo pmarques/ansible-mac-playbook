@@ -1,5 +1,11 @@
 ---
 
+- hosts: mac
+  gather_facts: no
+  tasks:
+  - include: tasks/always.yaml
+    tags: always
+
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
   gather_facts: no
@@ -51,5 +57,8 @@
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml
   - include: tasks/gcloud.yaml
+
+  # Required by minikube if VM drive is xhyve
+  - include: tasks/docker-machine-driver-xhyve.yaml
 
 # vi:ft=ansible

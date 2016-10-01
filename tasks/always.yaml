@@ -1,0 +1,6 @@
+---
+
+- shell: brew --prefix
+  register: brew_prefix
+
+- set_fact: brew_prefix="{{ brew_prefix.stdout }}"

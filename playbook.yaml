@@ -46,6 +46,7 @@
     - bonjour-browser
     - the-unarchiver
     - xquartz # Required t build virt-manager
+    - minikube
 
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml

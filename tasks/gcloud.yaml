@@ -8,6 +8,18 @@
 - name: "Install Google Cloud SDK components"
   command: "gcloud components install kubectl"
 
+- stat:
+    path: "{{ brew_prefix }}/bin/gcloud"
+  register: gcloud_prefix
+
+- set_fact: glcoud_components_bin={{ gcloud_prefix.stat.lnk_source|dirname }}
+
+- name: "Link gcloud component"
+  file:
+    src: "{{ glcoud_components_bin }}/kubectl"
+    dest: "{{ brew_prefix }}/bin/kubectl"
+    state: link
+
 - name: "Update Google Cloud SDK components"
   command: "gcloud components update"
   when: pkg_state == "latest"

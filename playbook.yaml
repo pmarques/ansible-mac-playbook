@@ -30,6 +30,7 @@
     - pkg-config
     - azure-cli
     - p7zip
+    - android-platform-tools
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present"

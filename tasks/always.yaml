@@ -2,5 +2,6 @@
 
 - shell: brew --prefix
   register: brew_prefix
+  changed_when: False
 
 - set_fact: brew_prefix="{{ brew_prefix.stdout }}"

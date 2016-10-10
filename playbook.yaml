@@ -6,6 +6,10 @@
   - include: tasks/always.yaml
     tags: always
 
+  - name: "Tap a Homebrew caskroom/versions repository"
+    homebrew_tap:
+      name: "caskroom/versions"
+
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
   gather_facts: no

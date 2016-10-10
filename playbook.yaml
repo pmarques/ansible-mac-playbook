@@ -47,6 +47,9 @@
     with_items:
     - skype
     - google-chrome
+    - google-chrome-canary
+    - firefox
+    - firefoxnightly
     - vlc
     - virtualbox
     - xca

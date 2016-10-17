@@ -60,6 +60,7 @@
     - the-unarchiver
     - xquartz # Required t build virt-manager
     - minikube
+    - helm
 
   - name: "Install pip modules"
     pip:

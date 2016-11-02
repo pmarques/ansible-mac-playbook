@@ -13,12 +13,8 @@ __NOTE:__ _Check available version, and you can use `--devel` to install latest 
 
 ```bash
 brew install ansible
-```
-
-Devel version
-
-```bash
-brew install --devel ansible
+brew install python
+pip install ansible
 ```
 
 # Provisioning Mac OS X, Configure & Install

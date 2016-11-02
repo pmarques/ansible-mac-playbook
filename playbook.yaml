@@ -17,7 +17,6 @@
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }}
     with_items:
-    - ansible
     - bash-completion
     - git
     - libvirt
@@ -70,6 +69,7 @@
     with_items:
     - enum # for any reason is required by ipython and not installed o0
     - ipython
+    - ansible
 
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml

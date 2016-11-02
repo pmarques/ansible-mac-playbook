@@ -8,6 +8,8 @@
   - editorconfig
   - linter
   - linter-jshint
+  - language-docker
+  - language-ini
   - aligner
   - autocomplete-plus
   - merge-conflicts

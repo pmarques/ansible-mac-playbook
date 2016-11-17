@@ -28,7 +28,6 @@
     - curl
     - xhyve
     - qemu
-    - zmq
     - node
     - python
     - go

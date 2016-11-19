@@ -61,6 +61,11 @@
     - minikube
     - helm
 
+  - name: "Remove old brew packages"
+    homebrew_cask: name="{{item}}" state="absent"
+    with_items:
+    - ansible
+
   - name: "Install pip modules"
     pip:
       name: "{{ item }}"

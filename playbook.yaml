@@ -14,8 +14,11 @@
   hosts: mac
   gather_facts: no
   tasks:
+  - name: "Update homebrew and upgrade all packages"
+    homebrew: update_homebrew=yes upgrade_all=yes
+
   - name: install tools
-    homebrew: name="{{item}}" state={{ pkg_state }}
+    homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
     with_items:
     - bash-completion
     - git
@@ -41,7 +44,7 @@
     - android-platform-tools
 
   - name: install nice applications
-    homebrew_cask: name="{{item}}" state="present"
+    homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
     with_items:
     - skype
     - google-chrome

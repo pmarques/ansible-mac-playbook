@@ -26,5 +26,5 @@ ansible-playbook -i host playbook.yaml --ask-become-pass
 ## Upgrade packages
 
 ```bash
-ansible-playbook -i hosts playbook.yml -e pkg_state=latest
+ansible-playbook -i host playbook.yaml -e pkg_state=latest
 ```

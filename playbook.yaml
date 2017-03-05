@@ -23,6 +23,7 @@
     - bash-completion
     - git
     - gpg2
+    - pinentry
     - libvirt
     - nmap
     - ssh-copy-id
@@ -49,6 +50,7 @@
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
     with_items:
+    - gpgtools
     - skype
     - google-chrome
     - google-chrome-canary

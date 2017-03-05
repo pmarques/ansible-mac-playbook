@@ -43,6 +43,7 @@
     - carina # Rackepsace continer service  cli
     - p7zip
     - android-platform-tools
+    - kubernetes-helm
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
@@ -63,7 +64,6 @@
     - the-unarchiver
     - xquartz # Required t build virt-manager
     - minikube
-    - helm
 
   - name: "Remove old brew packages"
     homebrew_cask: name="{{item}}" state="absent"

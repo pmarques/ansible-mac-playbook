@@ -1,4 +1,7 @@
 [mac]
 localhost              ansible_connection=local
 
+[personal:children]
+mac
+
 # vi:ft=ansible_hosts

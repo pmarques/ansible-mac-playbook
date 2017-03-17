@@ -24,54 +24,11 @@
 
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
-    with_items:
-    - bash-completion
-    - git
-    - gpg2
-    - pinentry
-    - libvirt
-    - nmap
-    - ssh-copy-id
-    - tmux
-    - tree
-    - wget
-    - curl
-    - xhyve
-    - qemu
-    - node
-    - python
-    - go
-    - pv
-    - iperf3
-    - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
-    - autoconf
-    - pkg-config
-    - azure-cli
-    - carina # Rackepsace continer service  cli
-    - p7zip
-    - android-platform-tools
-    - kubernetes-helm
+    with_items: "{{ packages.brew }}"
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
-    with_items:
-    - gpgtools
-    - skype
-    - google-chrome
-    - google-chrome-canary
-    - firefox
-    - firefoxnightly
-    - vlc
-    - spotify
-    - virtualbox
-    - xca
-    - vagrant
-    - docker-toolbox
-    - atom
-    - bonjour-browser
-    - the-unarchiver
-    - xquartz # Required t build virt-manager
-    - minikube
+    with_items: "{{ packages.brew_cask }}"
 
   - name: "Remove old brew packages"
     homebrew_cask: name="{{item}}" state="absent"
@@ -82,10 +39,7 @@
     pip:
       name: "{{ item }}"
       state: latest
-    with_items:
-    - enum # for any reason is required by ipython and not installed o0
-    - ipython
-    - ansible
+    with_items: "{{ packages.pip }}"
 
   - include: tasks/mac_preferences.yaml
   - include: tasks/atom.yaml

@@ -21,6 +21,7 @@ packages:
   - google-chrome
   - gpgtools
   - hipchat
+  - slack
   - skype
   - spotify
   - vagrant

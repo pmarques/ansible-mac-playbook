@@ -21,28 +21,35 @@
   tasks:
   - name: "Update homebrew and upgrade all packages"
     homebrew: update_homebrew=yes upgrade_all=yes
+    tags: [ brew ]
 
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
     with_items: "{{ packages.brew }}"
+    tags: [ brew ]
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
     with_items: "{{ packages.brew_cask }}"
+    tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
     homebrew_cask: name="{{item}}" state="absent"
     with_items:
     - ansible
+    tags: [ cleanup ]
 
   - name: "Install pip modules"
     pip:
       name: "{{ item }}"
       state: latest
     with_items: "{{ packages.pip }}"
+    tags: [ pip, python ]
 
   - include: tasks/mac_preferences.yaml
+    tags: [ osx, preferences ]
   - include: tasks/atom.yaml
+    tags: [ atom ]
   - include: tasks/gcloud.yaml
 
   # Required by minikube if VM drive is xhyve

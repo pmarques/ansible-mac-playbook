@@ -1,23 +1,48 @@
 ---
 
-- osx_defaults: domain="com.apple.screensaver" key="askForPassword" type="integer" value="1" state="present"
-- osx_defaults: domain="com.apple.screensaver" key="askForPasswordDelay" type="float" value="0" state="present"
-- osx_defaults: domain="com.apple.Terminal" key="Default Window Settings" type="string"  value="Homebrew" state="present"
-- osx_defaults: domain="com.apple.Terminal" key="Startup Window Settings" type="string"  value="Homebrew" state="present"
+- name: Enable screensaver password
+  osx_defaults: domain="com.apple.screensaver" key="askForPassword" type="integer" value="1" state="present"
+
+- name: Set screensaver password immediately
+  osx_defaults: domain="com.apple.screensaver" key="askForPasswordDelay" type="float" value="0" state="present"
+
+- name: Configure Default terminal profile
+  osx_defaults: domain="com.apple.Terminal" key="Default Window Settings" type="string"  value="Homebrew" state="present"
+
+- name: Configure startup terminal profile
+  osx_defaults: domain="com.apple.Terminal" key="Startup Window Settings" type="string"  value="Homebrew" state="present"
+
 # TODO: This is a complex value, how to do this?
 # - osx_defaults: domain="com.apple.Terminal" key="shellExitAction" type="integer"  value="0" state="present"
+
 # Dock configurations
-- osx_defaults: domain="com.apple.dock" key="autohide" type="bool"  value="1" state="present"
-- osx_defaults: domain="com.apple.dock" key="tilesize" type="float"  value="38" state="present"
-- osx_defaults: domain="com.apple.dock" key="largesize" type="float"  value="87" state="present"
-- osx_defaults: domain="com.apple.dock" key="magnification" type="bool"  value="1" state="present"
+- name: Autohide OS X dock
+  osx_defaults: domain="com.apple.dock" key="autohide" type="bool"  value="1" state="present"
+
+- name: Set dock size
+  osx_defaults: domain="com.apple.dock" key="tilesize" type="float"  value="38" state="present"
+
+- name: Enable docker magnification
+  osx_defaults: domain="com.apple.dock" key="magnification" type="bool"  value="1" state="present"
+
+- name: Set dock magnification max size
+  osx_defaults: domain="com.apple.dock" key="largesize" type="float"  value="87" state="present"
+
 # Enable zoom using scroll
-- osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="HIDScrollZoomModifierMask" type="integer" value="1048576" state="present"
-- osx_defaults: domain="com.apple.dock" key="mru-spaces" type="bool" value="false" state="present"
+- name: Enable zoom using Trackpad Scroll
+  osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="HIDScrollZoomModifierMask" type="integer" value="1048576" state="present"
+
+- name: Disable MRU (Most recent used spaces)
+  osx_defaults: domain="com.apple.dock" key="mru-spaces" type="bool" value="false" state="present"
+
 # Enable 3-finger drag. (Moving with 3 fingers in any window "chrome" moves the window.)
 # TODO: This requires reboot to work...
-- osx_defaults: domain="com.apple.driver.AppleBluetoothMultitouch.trackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
-- osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+- name: Enable OS X 3 fingers drag (external trackpad)
+  osx_defaults: domain="com.apple.driver.AppleBluetoothMultitouch.trackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
 
+- name: Enable OS X 3 fingers drag
+  osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+
+# Apply settings
 - name: "Reload dock settings"
   command: "launchctl stop com.apple.Dock.agent"

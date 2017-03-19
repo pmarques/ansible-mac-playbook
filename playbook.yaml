@@ -13,6 +13,11 @@
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
   gather_facts: no
+  handlers:
+  # Apply Dock settings
+  - name: Reload OS X Dock
+    command: "launchctl stop com.apple.Dock.agent"
+
   tasks:
   - name: "Update homebrew and upgrade all packages"
     homebrew: update_homebrew=yes upgrade_all=yes

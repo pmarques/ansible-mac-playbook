@@ -5,10 +5,12 @@
   tasks:
   - include: tasks/always.yaml
     tags: always
+    when: "'personal' in group_names"
 
   - name: "Tap a Homebrew caskroom/versions repository"
     homebrew_tap:
       name: "caskroom/versions"
+    when: "'personal' in group_names"
 
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
@@ -51,8 +53,10 @@
   - include: tasks/atom.yaml
     tags: [ atom ]
   - include: tasks/gcloud.yaml
+    when: "'personal' in group_names"
 
   # Required by minikube if VM drive is xhyve
   - include: tasks/docker-machine-driver-xhyve.yaml
+    when: "'personal' in group_names"
 
 # vi:ft=ansible

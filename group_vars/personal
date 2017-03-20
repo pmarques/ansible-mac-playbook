@@ -29,14 +29,12 @@ packages:
   brew_cask:
   - atom
   - docker
-  - dropbox
   - bonjour-browser
   - docker-toolbox
   - firefox
   - firefoxnightly
   - google-chrome
   - google-chrome-canary
-  - google-drive
   - gpgtools
   - minikube
   - slack

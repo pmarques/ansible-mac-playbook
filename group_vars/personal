@@ -28,7 +28,7 @@ packages:
   - xhyve
   brew_cask:
   - atom
-  - docker
+  - docker-beta
   - bonjour-browser
   - docker-toolbox
   - firefox

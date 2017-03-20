@@ -27,13 +27,16 @@ packages:
   - wget
   - xhyve
   brew_cask:
-  - firefox
   - atom
+  - docker
+  - dropbox
   - bonjour-browser
   - docker-toolbox
+  - firefox
   - firefoxnightly
   - google-chrome
   - google-chrome-canary
+  - google-drive
   - gpgtools
   - minikube
   - slack

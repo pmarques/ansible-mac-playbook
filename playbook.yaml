@@ -41,6 +41,10 @@
     - ansible
     tags: [ cleanup ]
 
+  - name: "Homebrew cleanup"
+    command: "brew cleanup"
+    tags: [ brew, cleanup ]
+
   - name: "Install pip modules"
     pip:
       name: "{{ item }}"

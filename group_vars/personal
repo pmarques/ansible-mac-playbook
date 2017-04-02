@@ -45,7 +45,6 @@ packages:
   - virtualbox
   - vlc
   - xca
-  - xquartz # Required t build virt-manager
   pip:
   - ansible
   - enum # for any reason is required by ipython and not installed o0

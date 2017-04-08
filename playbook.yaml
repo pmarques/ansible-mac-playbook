@@ -27,12 +27,12 @@
 
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
-    with_items: "{{ packages.brew }}"
+    with_items: "{{ all_packages.brew + packages.brew }}"
     tags: [ brew ]
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
-    with_items: "{{ packages.brew_cask }}"
+    with_items: "{{ all_packages.brew_cask + packages.brew_cask }}"
     tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
@@ -49,7 +49,7 @@
     pip:
       name: "{{ item }}"
       state: latest
-    with_items: "{{ packages.pip }}"
+    with_items: "{{ all_packages.pip + packages.pip }}"
     tags: [ pip, python ]
 
   - include: tasks/mac_preferences.yaml

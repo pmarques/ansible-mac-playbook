@@ -1,3 +1,33 @@
 pkg_state: present
 
+all_packages:
+  brew:
+  - autoconf
+  - bash-completion
+  - curl
+  - git
+  - go
+  - gpg2
+  - pinentry
+  - pkg-config
+  - pv
+  - python
+  - tmux
+  - tree
+  - wget
+  brew_cask:
+  - atom
+  - google-chrome
+  - gpgtools
+  - slack
+  - skype
+  - spotify
+  - vagrant
+  - virtualbox
+  - visual-studio-code
+  pip:
+  - ansible
+  - enum # for any reason is required by ipython and not installed o0
+  - ipython
+
 # vi:ft=yaml

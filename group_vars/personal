@@ -1,14 +1,8 @@
 packages:
   brew:
   - android-platform-tools
-  - autoconf
   - azure-cli
-  - bash-completion
   - carina # Rackepsace continer service  cli
-  - curl
-  - git
-  - go
-  - gpg2
   - iperf3
   - kubernetes-helm
   - libvirt
@@ -16,37 +10,19 @@ packages:
   - node
   - p7zip
   - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
-  - pinentry
-  - pkg-config
-  - pv
-  - python
   - qemu
   - ssh-copy-id
-  - tmux
-  - tree
-  - wget
   - xhyve
   brew_cask:
-  - atom
   - docker-beta
   - bonjour-browser
   - docker-toolbox
   - firefox
   - firefoxnightly
-  - google-chrome
   - google-chrome-canary
-  - gpgtools
   - minikube
-  - slack
-  - skype
-  - spotify
   - the-unarchiver
-  - vagrant
-  - virtualbox
   - vlc
   - xca
-  pip:
-  - ansible
-  - enum # for any reason is required by ipython and not installed o0
-  - ipython
+  # pip:
 

@@ -29,5 +29,18 @@ all_packages:
   - ansible
   - enum # for any reason is required by ipython and not installed o0
   - ipython
+  atom:
+  - docblockr
+  - editorconfig
+  - linter
+  - linter-jshint
+  - language-docker
+  - language-ini
+  - aligner
+  - autocomplete-plus
+  - merge-conflicts
+  - minimap
+  - dash
+
 
 # vi:ft=yaml

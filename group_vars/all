@@ -8,6 +8,7 @@ all_packages:
   - git
   - go
   - gpg2
+  - jq
   - pinentry
   - pkg-config
   - pv

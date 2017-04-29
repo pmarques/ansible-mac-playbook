@@ -12,6 +12,7 @@ packages:
   - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
   - qemu
   - ssh-copy-id
+  - terraform
   - xhyve
   brew_cask:
   - docker-beta

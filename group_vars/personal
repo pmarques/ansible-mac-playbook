@@ -25,4 +25,5 @@ packages:
   - minikube
   - the-unarchiver
   - vlc
+  - wireshark
   - xca

@@ -8,6 +8,7 @@ packages:
   - libvirt
   - nmap
   - node
+  - openvpn
   - p7zip
   - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
   - qemu

@@ -16,6 +16,9 @@
   osx_defaults: domain="com.apple.Terminal" key="Startup Window Settings" type="string"  value="Homebrew" state="present"
   notify: Reload OS X Dock
 
+- name: Configure Terminal focus to follow mouse
+  osx_defaults: domain="com.apple.Terminal" key="FocusFollowsMouse" type="string"  value="YES" state="present"
+
 # TODO: This is a complex value, how to do this?
 # - osx_defaults: domain="com.apple.Terminal" key="shellExitAction" type="integer"  value="0" state="present"
 

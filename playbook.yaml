@@ -10,7 +10,6 @@
   - name: "Tap a Homebrew caskroom/versions repository"
     homebrew_tap:
       name: "caskroom/versions"
-    when: "'personal' in group_names"
 
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac

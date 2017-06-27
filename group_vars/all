@@ -11,7 +11,7 @@ all_packages:
   - jq
   - pinentry
   - pkg-config
-  - pstre
+  - pstree
   - pv
   - python
   - tmux

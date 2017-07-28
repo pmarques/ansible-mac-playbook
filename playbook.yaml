@@ -62,4 +62,12 @@
   - include: tasks/docker-machine-driver-xhyve.yaml
     when: "'personal' in group_names"
 
+  # https://github.com/Homebrew/homebrew-core/pull/14408
+  - name: "Fix python"
+    file:
+      src: "../Cellar/python/2.7.13_1/bin/python2"
+      dest: "/usr/local/bin/python"
+      state: link
+    tags: here
+
 # vi:ft=ansible

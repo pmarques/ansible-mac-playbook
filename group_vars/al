@@ -4,6 +4,7 @@ packages:
   - node
   - p7zip
   - saltstack
+  - terraform
   brew_cask:
   - docker
   - dropbox

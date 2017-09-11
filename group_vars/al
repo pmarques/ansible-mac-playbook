@@ -11,6 +11,7 @@ packages:
   - google-chrome-canary
   - google-drive
   - hipchat
+  - tunnelblick
   pip:
   - awscli
   - aws-shell

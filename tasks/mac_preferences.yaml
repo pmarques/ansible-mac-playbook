@@ -57,3 +57,7 @@
 - name: Enable OS X 3 fingers drag
   osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
   notify: Reload OS X Dock
+
+- name: Save Screenshots using JPEG
+  osx_defaults: domain="com.apple.screencapture" key="type" type="string"  value="jpg" state="present"
+  notify: Reload OS X Dock

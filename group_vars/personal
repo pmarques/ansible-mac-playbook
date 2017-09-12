@@ -1,7 +1,6 @@
 packages:
   brew:
   - android-platform-tools
-  - azure-cli
   - carina # Rackepsace continer service  cli
   - iperf3
   - kubernetes-helm

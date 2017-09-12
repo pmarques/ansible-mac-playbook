@@ -3,6 +3,7 @@ pkg_state: present
 all_packages:
   brew:
   - autoconf
+  - azure-cli
   - bash-completion
   - curl
   - git
@@ -29,6 +30,7 @@ all_packages:
   - visual-studio-code
   pip:
   - ansible
+  - azure-cli
   - enum # for any reason is required by ipython and not installed o0
   - ipython
   atom:

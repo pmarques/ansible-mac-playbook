@@ -18,8 +18,6 @@ packages:
   - bonjour-browser
   - docker-beta
   - docker-toolbox
-  - firefox
-  - firefoxnightly
   - google-chrome-canary
   - minikube
   - the-unarchiver

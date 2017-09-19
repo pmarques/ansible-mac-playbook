@@ -20,6 +20,8 @@ all_packages:
   - wget
   brew_cask:
   - atom
+  - firefox
+  - firefoxnightly
   - google-chrome
   - gpgtools
   - skype

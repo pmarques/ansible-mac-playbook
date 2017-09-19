@@ -24,6 +24,15 @@
     homebrew: update_homebrew=yes upgrade_all=yes
     tags: [ brew ]
 
+  - name: "Configure static hosts"
+    become: yes
+    lineinfile:
+      path: /etc/hosts
+      regexp: "^{{ item | regex_escape() }}$"
+      line: "{{ item }}"
+    with_items: "{{ all_static_hosts + ( static_hosts if static_hosts is defined else [] ) }}"
+    tags: [ hosts ]
+
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
     with_items: "{{ all_packages.brew + ( packages.brew if 'brew' in packages else [] ) }}"

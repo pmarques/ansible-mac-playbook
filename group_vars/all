@@ -45,6 +45,6 @@ all_packages:
   - merge-conflicts
   - minimap
   - dash
-
+all_static_hosts: []
 
 # vi:ft=yaml

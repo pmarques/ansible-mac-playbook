@@ -17,3 +17,4 @@ packages:
   - aws-shell
   - awsjump
   - cfn-flip
+static_hosts: []

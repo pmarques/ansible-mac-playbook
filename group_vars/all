@@ -22,8 +22,8 @@ all_packages:
   - atom
   - google-chrome
   - gpgtools
-  - slack
   - skype
+  - slack
   - spotify
   - vagrant
   - virtualbox

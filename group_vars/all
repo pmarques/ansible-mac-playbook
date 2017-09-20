@@ -36,17 +36,17 @@ all_packages:
   - enum # for any reason is required by ipython and not installed o0
   - ipython
   atom:
-  - docblockr
-  - editorconfig
-  - linter
-  - linter-jshint
-  - language-docker
-  - language-ini
   - aligner
   - autocomplete-plus
+  - dash
+  - docblockr
+  - editorconfig
+  - language-docker
+  - language-ini
+  - linter
+  - linter-jshint
   - merge-conflicts
   - minimap
-  - dash
 all_static_hosts: []
 
 # vi:ft=yaml

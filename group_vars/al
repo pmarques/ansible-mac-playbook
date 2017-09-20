@@ -13,8 +13,8 @@ packages:
   - hipchat
   - tunnelblick
   pip:
-  - awscli
   - aws-shell
+  - awscli
   - awsjump
   - cfn-flip
 static_hosts:

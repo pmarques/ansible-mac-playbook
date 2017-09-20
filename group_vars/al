@@ -17,6 +17,7 @@ packages:
   - awscli
   - awsjump
   - cfn-flip
+  - git-review
 static_hosts:
   - 10.220.5.10 sit.cpp.cjscp.org.uk
   - 10.224.20.3 codereview.dev2.cloud.local

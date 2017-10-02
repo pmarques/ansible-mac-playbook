@@ -61,3 +61,7 @@
 - name: Save Screenshots using JPEG
   osx_defaults: domain="com.apple.screencapture" key="type" type="string"  value="jpg" state="present"
   notify: Reload OS X Dock
+
+- name: Don't show desktop icons
+  osx_defaults: domain="com.apple.finder" key="CreateDesktop" type="bool"  value="false" state="present"
+  notify: Reload Finder

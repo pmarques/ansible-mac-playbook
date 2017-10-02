@@ -19,6 +19,9 @@
   - name: Reload OS X Dock
     command: "launchctl stop com.apple.Dock.agent"
 
+  - name: Reload Finder
+    command: "killall Finder"
+
   tasks:
   - name: "Update homebrew and upgrade all packages"
     homebrew: update_homebrew=yes upgrade_all=yes

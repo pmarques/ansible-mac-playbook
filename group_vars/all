@@ -23,6 +23,7 @@ all_packages:
   - firefox
   - firefoxnightly
   - google-chrome
+  - google-featured-photos
   - gpgtools
   - skype
   - slack

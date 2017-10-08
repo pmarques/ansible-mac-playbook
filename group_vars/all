@@ -48,6 +48,7 @@ all_packages:
   - linter-jshint
   - merge-conflicts
   - minimap
+  gems: []
 all_static_hosts: []
 
 brew_packages: "{{ all_packages.brew | union( packages.brew | default([]) ) }}"

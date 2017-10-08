@@ -63,6 +63,14 @@
     with_items: "{{ pip_packages }}"
     tags: [ pip, python ]
 
+  # TODO: this is not working, is not installing binaries o0
+  - name: "Install Ruby modules"
+    gem:
+      name: "{{ item }}"
+      state: latest
+    with_items: "{{ gem_packages }}"
+    tags: [ gems, ruby ]
+
   - include: tasks/mac_preferences.yaml
     tags: [ osx, preferences ]
   - include: tasks/atom.yaml

@@ -3,6 +3,8 @@ packages:
   - nmap
   - node
   - p7zip
+  - rbenv
+  - ruby
   - saltstack
   - terraform
   brew_cask:
@@ -20,6 +22,10 @@ packages:
   - git-review
   - jenkins-job-builder
   - pre-commit
+  gems:
+  - barking_iguana-compound
+  - bundler
+  - rspec
 env_static_hosts:
   - 10.220.5.10 sit.cpp.cjscp.org.uk
   - 10.224.20.3 codereview.dev2.cloud.local

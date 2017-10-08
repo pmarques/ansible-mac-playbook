@@ -20,11 +20,11 @@ pip install ansible
 # Provisioning Mac OS X, Configure & Install
 
 ```bash
-ansible-playbook -i inventory/personal playbook.yaml --ask-become-pass
+ansible-playbook -i inventories/personal playbook.yaml --ask-become-pass
 ```
 
 ## Upgrade packages
 
 ```bash
-ansible-playbook -i inventory/personal playbook.yaml -e pkg_state=latest
+ansible-playbook -i inventories/personal playbook.yaml -e pkg_state=latest
 ```

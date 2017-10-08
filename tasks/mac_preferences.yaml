@@ -65,3 +65,5 @@
 - name: Don't show desktop icons
   osx_defaults: domain="com.apple.finder" key="CreateDesktop" type="bool"  value="false" state="present"
   notify: Reload Finder
+
+# vi:ft=ansible

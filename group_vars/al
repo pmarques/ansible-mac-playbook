@@ -26,3 +26,5 @@ env_static_hosts:
   - 10.128.5.6 codereview.mgmt.hmcts.internal
   - 10.128.5.6 coderepo.mgmt.hmcts.internal
   - 10.224.29.2 cpprepo.test2.cloud.local
+
+# vi:ft=ansible

@@ -24,3 +24,5 @@ packages:
   - vlc
   - wireshark
   - xca
+
+# vi:ft=ansible

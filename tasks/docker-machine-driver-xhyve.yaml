@@ -16,3 +16,5 @@
     group: wheel
     mode: u+s
     state: file
+
+# vi:ft=ansible

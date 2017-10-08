@@ -5,3 +5,5 @@
   changed_when: False
 
 - set_fact: brew_prefix="{{ brew_prefix.stdout }}"
+
+# vi:ft=ansible

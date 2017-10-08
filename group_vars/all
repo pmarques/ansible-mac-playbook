@@ -56,4 +56,4 @@ pip_packages: "{{ all_packages.pip | union( packages.pip | default([]) ) }}"
 gem_packages: "{{ all_packages.gems | union( packages.gems | default([]) ) }}"
 static_hosts: "{{ all_static_hosts | union( env_static_hosts | default([]) ) }}"
 
-# vi:ft=yaml
+# vi:ft=ansible

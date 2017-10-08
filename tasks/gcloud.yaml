@@ -23,3 +23,5 @@
 - name: "Update Google Cloud SDK components"
   command: "gcloud components update"
   when: pkg_state == "latest"
+
+# vi:ft=ansible

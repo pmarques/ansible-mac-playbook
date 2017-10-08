@@ -33,17 +33,17 @@
       path: /etc/hosts
       regexp: "^{{ item | regex_escape() }}$"
       line: "{{ item }}"
-    with_items: "{{ all_static_hosts + ( static_hosts if static_hosts is defined else [] ) }}"
+    with_items: "{{ static_hosts }}"
     tags: [ hosts ]
 
   - name: install tools
     homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
-    with_items: "{{ all_packages.brew + ( packages.brew if 'brew' in packages else [] ) }}"
+    with_items: "{{ brew_packages }}"
     tags: [ brew ]
 
   - name: install nice applications
     homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
-    with_items: "{{ all_packages.brew_cask + ( packages.brew_cask if 'brew_cask' in packages else [] ) }}"
+    with_items: "{{ brew_cask_packages }}"
     tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
@@ -60,7 +60,7 @@
     pip:
       name: "{{ item }}"
       state: latest
-    with_items: "{{ all_packages.pip + ( packages.pip if 'pip' in packages else [] ) }}"
+    with_items: "{{ pip_packages }}"
     tags: [ pip, python ]
 
   - include: tasks/mac_preferences.yaml

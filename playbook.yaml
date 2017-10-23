@@ -89,12 +89,23 @@
       changed_when: False
       register: python_path
 
+    - shell: "readlink $(which pip2)"
+      check_mode: no
+      changed_when: False
+      register: pip2_path
+
     # https://github.com/Homebrew/homebrew-core/pull/14408
     - file:
-        # src: "../Cellar/python/2.7.14/bin/python2"
         src: "{{ python_path.stdout }}"
         dest: "/usr/local/bin/python"
         state: link
-    tags: [ python ]
+
+    # https://github.com/Homebrew/homebrew-core/pull/14408
+    - file:
+        src: "{{ pip2_path.stdout }}"
+        dest: "/usr/local/bin/pip"
+        state: link
+
+    tags: [ python, brew, fix ]
 
 # vi:ft=ansible

@@ -44,6 +44,7 @@ all_packages:
   - docblockr
   - editorconfig
   - language-docker
+  - language-terraform
   - language-ini
   - linter
   - linter-jshint

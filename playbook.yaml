@@ -108,4 +108,10 @@
 
     tags: [ python, brew, fix ]
 
+  # TODO: this is not working, is not installing binaries o0
+  - name: "Install VSCode extensions"
+    shell: "code --install-extension {{ item }}"
+    with_items: "{{ vscode_packages }}"
+    tags: [ vscode ]
+
 # vi:ft=ansible

@@ -1,6 +1,5 @@
 packages:
   brew:
-  - android-platform-tools
   - carina # Rackepsace continer service  cli
   - iperf3
   - kubernetes-helm
@@ -14,6 +13,7 @@ packages:
   - terraform
   - xhyve
   brew_cask:
+  - android-platform-tools
   - bonjour-browser
   - docker-beta
   - docker-toolbox

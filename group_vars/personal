@@ -15,7 +15,7 @@ packages:
   brew_cask:
   - android-platform-tools
   - bonjour-browser
-  - docker-beta
+  - docker
   - docker-toolbox
   - google-chrome-canary
   - minikube

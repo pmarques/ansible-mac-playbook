@@ -54,7 +54,30 @@ all_packages:
   vscode:
   - mauve.terraform
   gems: []
-all_static_hosts: []
+all_static_hosts:
+  - "127.0.0.1		referrer.disqus.com"
+  - "127.0.0.1		www.google-analytics.com"
+  - "127.0.0.1		dc.ads.linkedin.com"
+  - "127.0.0.1		px.ads.linkedin.com"
+  - "127.0.0.1		ping.chartbeat.net"
+  - "127.0.0.1		a.brpx.io"
+  - "127.0.0.1		disqus.com"
+  - "127.0.0.1		c.disquscdn.com"
+  - "127.0.0.1		animmex.disqus.com"
+  - "127.0.0.1		gapt.hit.gemius.pl"
+  - "127.0.0.1		www.apple.com-cleaner.support"
+  - "127.0.0.1		www.googletagmanager.com"
+  - "127.0.0.1		casino.betway.com"
+  - "127.0.0.1		www.staygassafe.co.uk"
+  - "127.0.0.1		nailedtheaerial.com"
+  - "127.0.0.1		www.apple.com-cleaner.systems"
+  - "127.0.0.1		girrrly.com"
+  - "127.0.0.1		resetamobil.com"
+  - "127.0.0.1		ex.ibt.uk"
+  - "127.0.0.1		nom001.site"
+  - "127.0.0.1		coinhive.com"
+  - "127.0.0.1		apin.monerise.com"
+  - "127.0.0.1		api.monerise.com"
 
 brew_packages: "{{ all_packages.brew | union( packages.brew | default([]) ) }}"
 brew_cask_packages: "{{ all_packages.brew_cask | union( packages.brew_cask | default([]) ) }}"

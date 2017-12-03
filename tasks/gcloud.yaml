@@ -6,7 +6,11 @@
   - google-cloud-sdk
 
 - name: "Install Google Cloud SDK components"
-  command: "gcloud components install kubectl"
+  command: "gcloud components install {{ item }}"
+  with_items:
+  - alpha
+  - beta
+  - kubectl
 
 - stat:
     path: "{{ brew_prefix }}/bin/gcloud"

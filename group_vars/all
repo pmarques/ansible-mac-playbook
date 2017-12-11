@@ -26,6 +26,7 @@ all_packages:
   - google-chrome
   - google-featured-photos
   - gpgtools
+  - keybase
   - skype
   - slack
   - spotify

@@ -3,7 +3,6 @@ pkg_state: present
 all_packages:
   brew:
   - autoconf
-  - azure-cli
   - bash-completion
   - curl
   - git

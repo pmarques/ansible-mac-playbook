@@ -82,32 +82,6 @@
   - include: tasks/docker-machine-driver-xhyve.yaml
     when: "'personal' in group_names"
 
-  - name: "Fix python"
-    block:
-    - shell: "readlink $(which python2)"
-      check_mode: no
-      changed_when: False
-      register: python_path
-
-    - shell: "readlink $(which pip2)"
-      check_mode: no
-      changed_when: False
-      register: pip2_path
-
-    # https://github.com/Homebrew/homebrew-core/pull/14408
-    - file:
-        src: "{{ python_path.stdout }}"
-        dest: "/usr/local/bin/python"
-        state: link
-
-    # https://github.com/Homebrew/homebrew-core/pull/14408
-    - file:
-        src: "{{ pip2_path.stdout }}"
-        dest: "/usr/local/bin/pip"
-        state: link
-
-    tags: [ python, brew, fix ]
-
   # TODO: this is not working, is not installing binaries o0
   - name: "Install VSCode extensions"
     shell: "code --install-extension {{ item }}"

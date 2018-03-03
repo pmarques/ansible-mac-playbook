@@ -36,7 +36,6 @@ all_packages:
   pip:
   - ansible
   - azure-cli
-  - enum # for any reason is required by ipython and not installed o0
   - ipython
   - virtualenvwrapper
   atom:

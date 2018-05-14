@@ -32,6 +32,7 @@ all_packages:
   - spotify
   - vagrant
   - virtualbox
+  - virtualbox-extension-pack
   - visual-studio-code
   pip:
   - ansible

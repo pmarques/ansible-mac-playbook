@@ -88,4 +88,9 @@
     with_items: "{{ vscode_packages }}"
     tags: [ vscode ]
 
+  - include: tasks/mac_pam_yubikey.yaml
+    become: yes
+    tags: [ yubikey ]
+
+
 # vi:ft=ansible

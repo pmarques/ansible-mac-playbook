@@ -1,0 +1,54 @@
+---
+
+- name: Require Yubikey to exit screensaver
+  pamd:
+    name: screensaver
+    type: account
+    control: required
+    module_path: "pam_opendirectory.so"
+    new_type: auth
+    new_control: required
+    new_module_path: "/usr/local/lib/security/pam_yubico.so"
+    module_arguments:
+      - "mode=challenge-response"
+    state: before
+  when: false
+
+- name: Require Yubikey to OS X login
+  pamd:
+    name: authorization
+    type: account
+    control: required
+    module_path: "pam_opendirectory.so"
+    new_type: auth
+    new_control: required
+    new_module_path: "/usr/local/lib/security/pam_yubico.so"
+    module_arguments: "mode=challenge-response"
+    state: before
+  when: false
+
+- name: Require Yubikey to login
+  pamd:
+    name: login
+    type: account
+    control: required
+    module_path: "pam_opendirectory.so"
+    new_type: auth
+    new_control: required
+    new_module_path: "/usr/local/lib/security/pam_yubico.so"
+    module_arguments: "mode=challenge-response"
+    state: before
+  when: false
+
+- name: Require Yubikey to login
+  pamd:
+    name: sudo
+    type: account
+    control: required
+    module_path: "pam_opendirectory.so"
+    new_type: auth
+    new_control: required
+    new_module_path: "/usr/local/lib/security/pam_yubico.so"
+    module_arguments: "mode=challenge-response"
+    state: before
+  when: false

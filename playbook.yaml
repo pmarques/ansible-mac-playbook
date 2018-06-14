@@ -47,9 +47,8 @@
     tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
-    homebrew_cask: name="{{item}}" state="absent"
-    with_items:
-    - ansible
+    homebrew: name="{{item}}" state="absent"
+    with_items: []
     tags: [ cleanup ]
 
   - name: "Homebrew cleanup"

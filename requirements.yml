@@ -1,3 +1,8 @@
 ---
 
+- src: git+git@bitbucket.org:patrickfmarques/ansible-dnsmasq.git
+  version: master
+  name: dnsmasq
+  path: roles/
+
 # vim:ft=ansible

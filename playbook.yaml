@@ -96,6 +96,9 @@
   gather_facts: yes
   vars:
     tlds:
+      localhost:
+        address:
+          - 127.0.0.1
       dev:
         address:
           - 127.0.0.1

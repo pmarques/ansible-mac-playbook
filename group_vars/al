@@ -7,6 +7,7 @@ packages:
   - ruby
   - saltstack
   - terraform
+  - vault
   brew_cask:
   - docker
   - dropbox

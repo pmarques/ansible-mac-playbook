@@ -102,14 +102,6 @@
       dev:
         address:
           - 127.0.0.1
-      cpp.nonlive:
-        server:
-          - 192.168.88.4
-          - 192.168.88.5
-      cp.cjs.hmcts.net:
-        server:
-          - 192.168.200.4
-          - 192.168.200.5
   roles:
     - name: "Configure DNSmasq"
       role: dnsmasq

@@ -8,7 +8,6 @@ packages:
   - terraform
   - vault
   brew_cask:
-  - docker
   - dropbox
   - google-chrome-canary
   - hipchat

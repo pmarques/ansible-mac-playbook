@@ -22,6 +22,7 @@ all_packages:
   - wget
   brew_cask:
   - atom
+  - docker
   - firefox
   - firefoxnightly
   - google-backup-and-sync

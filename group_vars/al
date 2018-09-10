@@ -10,7 +10,6 @@ packages:
   brew_cask:
   - dropbox
   - google-chrome-canary
-  - hipchat
   - tunnelblick
   pip:
   - aws-shell

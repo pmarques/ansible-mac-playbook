@@ -27,16 +27,19 @@ all_packages:
   - firefoxnightly
   - google-backup-and-sync
   - google-chrome
+  - google-chrome-canary
   - google-featured-photos
   - gpgtools
   - keybase
   - skype
   - slack
   - spotify
+  - tunnelblick
   - vagrant
   - virtualbox
   - virtualbox-extension-pack
   - visual-studio-code
+  - wireshark
   pip:
   - ansible
   - azure-cli

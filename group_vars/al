@@ -9,8 +9,6 @@ packages:
   - vault
   brew_cask:
   - dropbox
-  - google-chrome-canary
-  - tunnelblick
   pip:
   - aws-shell
   - awscli

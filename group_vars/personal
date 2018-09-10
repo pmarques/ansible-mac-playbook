@@ -16,11 +16,9 @@ packages:
   - android-platform-tools
   - bonjour-browser
   - docker-toolbox
-  - google-chrome-canary
   - minikube
   - the-unarchiver
   - vlc
-  - wireshark
   - xca
 
 # vi:ft=ansible

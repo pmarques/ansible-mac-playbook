@@ -24,6 +24,7 @@ all_packages:
   - atom
   - firefox
   - firefoxnightly
+  - google-backup-and-sync
   - google-chrome
   - google-featured-photos
   - gpgtools

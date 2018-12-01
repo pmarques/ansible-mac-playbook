@@ -1,4 +1,6 @@
 ---
+# Info
+# * https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf
 
 - name: Require Yubikey to exit screensaver
   pamd:
@@ -12,7 +14,6 @@
     module_arguments:
       - "mode=challenge-response"
     state: before
-  when: false
 
 - name: Require Yubikey to OS X login
   pamd:
@@ -23,24 +24,24 @@
     new_type: auth
     new_control: required
     new_module_path: "/usr/local/lib/security/pam_yubico.so"
-    module_arguments: "mode=challenge-response"
+    module_arguments:
+      - "mode=challenge-response"
     state: before
-  when: false
 
 - name: Require Yubikey to login
   pamd:
     name: login
     type: account
     control: required
-    module_path: "pam_opendirectory.so"
+    module_path: "pam_nologin.so"
     new_type: auth
     new_control: required
     new_module_path: "/usr/local/lib/security/pam_yubico.so"
-    module_arguments: "mode=challenge-response"
+    module_arguments:
+      - "mode=challenge-response"
     state: before
-  when: false
 
-- name: Require Yubikey to login
+- name: Require Yubikey to sudo
   pamd:
     name: sudo
     type: account
@@ -49,6 +50,6 @@
     new_type: auth
     new_control: required
     new_module_path: "/usr/local/lib/security/pam_yubico.so"
-    module_arguments: "mode=challenge-response"
+    module_arguments:
+      - "mode=challenge-response"
     state: before
-  when: false

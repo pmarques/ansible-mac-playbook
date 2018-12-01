@@ -89,7 +89,7 @@
 
   - include: tasks/mac_pam_yubikey.yaml
     become: yes
-    tags: [ yubikey ]
+    tags: [ yubikey , never]
 
 - name: ""
   hosts: mac

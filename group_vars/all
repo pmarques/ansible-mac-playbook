@@ -43,6 +43,7 @@ all_packages:
   pip:
   - ansible
   - ansible-lint
+  - aws-sam-cli
   - azure-cli
   - ipython
   - virtualenvwrapper

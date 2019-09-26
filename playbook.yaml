@@ -7,6 +7,12 @@
     tags: always
     when: "'personal' in group_names"
 
+  - name: "Add taps to Homebrew"
+    homebrew_tap:
+      name: "{{ item }}"
+    when: false
+    with_items: "{{ brew_taps }}"
+
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
   gather_facts: no

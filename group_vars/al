@@ -9,6 +9,7 @@ packages:
   - vault
   brew_cask:
   - dropbox
+  - amazon-workspaces
   pip:
   - aws-shell
   - awscli

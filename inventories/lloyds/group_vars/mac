@@ -1,0 +1,10 @@
+all_packages:
+  brew: []
+  brew_cask: []
+  pip: []
+  atom: []
+  vscode: []
+  gems: []
+all_static_hosts: []
+
+# vi:ft=ansible

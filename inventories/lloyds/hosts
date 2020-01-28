@@ -1,0 +1,7 @@
+[mac]
+localhost              ansible_connection=local ansible_python_interpreter=/usr/local/bin/python3
+
+[lloyds:children]
+mac
+
+# vi:ft=ansible_hosts

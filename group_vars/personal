@@ -16,7 +16,6 @@ packages:
   - android-platform-tools
   - bonjour-browser
   - docker-toolbox
-  - minikube
   - the-unarchiver
   - vlc
   - xca

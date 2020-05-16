@@ -93,21 +93,4 @@
     become: yes
     tags: [ yubikey , never]
 
-- name: ""
-  hosts: mac
-  gather_facts: yes
-  vars:
-    tlds:
-      localhost:
-        address:
-          - 127.0.0.1
-      dev:
-        address:
-          - 127.0.0.1
-  roles:
-    - name: "Configure DNSmasq"
-      role: dnsmasq
-      tags: dns
-      when: "'al' in group_names"
-
 # vi:ft=ansible

@@ -2,7 +2,7 @@ packages:
   brew:
   - carina # Rackepsace continer service  cli
   - iperf3
-  - kubernetes-helm
+  - helm
   - libvirt
   - nmap
   - node

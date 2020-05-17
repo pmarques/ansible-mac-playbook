@@ -39,13 +39,17 @@
     tags: [ hosts ]
 
   - name: install tools
-    homebrew: name="{{item}}" state={{ pkg_state }} update_homebrew=Yes
-    with_items: "{{ brew_packages }}"
+    homebrew:
+      name: "{{ brew_packages }}"
+      state: "{{ pkg_state }}"
+      update_homebrew: Yes
     tags: [ brew ]
 
   - name: install nice applications
-    homebrew_cask: name="{{item}}" state="present" update_homebrew=Yes
-    with_items: "{{ brew_cask_packages }}"
+    homebrew_cask:
+      name: "{{ brew_cask_packages }}"
+      state: "{{ pkg_state }}"
+      update_homebrew: Yes
     tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
@@ -59,9 +63,8 @@
 
   - name: "Install pip modules"
     pip:
-      name: "{{ item }}"
+      name: "{{ pip_packages }}"
       state: latest
-    with_items: "{{ pip_packages }}"
     tags: [ pip, python ]
 
   # TODO: this is not working, is not installing binaries o0

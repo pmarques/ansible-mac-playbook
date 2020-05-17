@@ -12,6 +12,7 @@
       name: "{{ item }}"
     when: false
     with_items: "{{ brew_taps }}"
+    tags: [ brew ]
 
 - name: "Configure Mac OS X, install Dev & Ops tools"
   hosts: mac
@@ -59,19 +60,21 @@
 
   - name: "Homebrew cleanup"
     command: "brew cleanup"
+    register: brew_cleanup
+    changed_when: "brew_cleanup.stdout_lines | length > 0"
     tags: [ brew, cleanup ]
 
   - name: "Install pip modules"
     pip:
       name: "{{ pip_packages }}"
-      state: latest
+      state: "{{ pkg_state }}"
     tags: [ pip, python ]
 
   # TODO: this is not working, is not installing binaries o0
   - name: "Install Ruby modules"
     gem:
       name: "{{ item }}"
-      state: latest
+      state: "{{ pkg_state }}"
     with_items: "{{ gem_packages }}"
     tags: [ gems, ruby ]
 

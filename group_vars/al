@@ -1,11 +1,8 @@
 packages:
   brew:
-  - nmap
-  - node
   - p7zip
   - rbenv
   - ruby
-  - terraform
   - vault
   brew_cask:
   - dropbox

@@ -15,6 +15,8 @@ all_packages:
   - gpg2
   - ipcalc
   - jq
+  - nmap
+  - node
   - openssh
   - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
   - pinentry
@@ -22,6 +24,7 @@ all_packages:
   - pstree
   - pv
   - python
+  - terraform
   - tmux
   - tree
   - wget

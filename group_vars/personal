@@ -4,13 +4,10 @@ packages:
   - iperf3
   - helm
   - libvirt
-  - nmap
-  - node
   - openvpn
   - p7zip
   - qemu
   - ssh-copy-id
-  - terraform
   - xhyve
   brew_cask:
   - android-platform-tools

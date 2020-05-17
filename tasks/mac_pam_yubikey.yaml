@@ -5,6 +5,7 @@
 - name: Require Yubikey to exit screensaver
   pamd:
     name: screensaver
+    backup: Yes
     type: account
     control: required
     module_path: "pam_opendirectory.so"
@@ -18,6 +19,7 @@
 - name: Require Yubikey to OS X login
   pamd:
     name: authorization
+    backup: Yes
     type: account
     control: required
     module_path: "pam_opendirectory.so"
@@ -31,6 +33,7 @@
 - name: Require Yubikey to login
   pamd:
     name: login
+    backup: Yes
     type: account
     control: required
     module_path: "pam_nologin.so"
@@ -44,6 +47,7 @@
 - name: Require Yubikey to sudo
   pamd:
     name: sudo
+    backup: Yes
     type: account
     control: required
     module_path: "pam_opendirectory.so"

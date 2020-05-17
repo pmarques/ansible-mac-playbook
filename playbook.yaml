@@ -80,8 +80,6 @@
 
   - include: tasks/mac_preferences.yaml
     tags: [ osx, preferences ]
-  - include: tasks/atom.yaml
-    tags: [ atom ]
   - include: tasks/gcloud.yaml
     when: "'personal' in group_names"
 

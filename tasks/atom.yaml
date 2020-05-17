@@ -1,8 +1,0 @@
-- name: Install Atom
-  homebrew_cask: name=atom state="present"
-
-- name: Install atom packages
-  command: apm install {{ item }}
-  with_items: "{{ all_packages.atom + ( packages.atom if 'atom' in packages else [] ) }}"
-
-# vi:ft=ansible

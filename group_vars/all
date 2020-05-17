@@ -98,6 +98,7 @@ all_static_hosts:
 
 brew_cleanup_packages:
   - bonjour-browser
+  - atom
 
 brew_taps: "{{ all_brew_taps | union( env_brew_taps | default([]) ) }}"
 brew_packages: "{{ all_packages.brew | union( packages.brew | default([]) ) }}"

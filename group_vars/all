@@ -70,6 +70,7 @@ all_packages:
   - mauve.terraform
   - ms-azure-devops.azure-pipelines
   gems: []
+
 all_static_hosts:
   - "127.0.0.1		referrer.disqus.com"
   - "127.0.0.1		www.google-analytics.com"
@@ -94,6 +95,9 @@ all_static_hosts:
   - "127.0.0.1		coinhive.com"
   - "127.0.0.1		apin.monerise.com"
   - "127.0.0.1		api.monerise.com"
+
+brew_cleanup_packages:
+  - bonjour-browser
 
 brew_taps: "{{ all_brew_taps | union( env_brew_taps | default([]) ) }}"
 brew_packages: "{{ all_packages.brew | union( packages.brew | default([]) ) }}"

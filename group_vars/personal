@@ -14,7 +14,6 @@ packages:
   - xhyve
   brew_cask:
   - android-platform-tools
-  - bonjour-browser
   - docker-toolbox
   - the-unarchiver
   - vlc

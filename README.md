@@ -26,5 +26,5 @@ ansible-playbook -i inventories/personal playbook.yaml --ask-become-pass -D
 ## Upgrade packages
 
 ```bash
-ansible-playbook -i inventories/personal playbook.yaml -e pkg_state=latest -D
+ansible-playbook -i inventories/personal playbook.yaml --ask-become-pass -D -e pkg_state=latest
 ```

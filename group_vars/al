@@ -16,7 +16,6 @@ packages:
   - git-review
   - jenkins-job-builder
   - pre-commit
-  - salt
   gems:
   - barking_iguana-compound
   - bundler

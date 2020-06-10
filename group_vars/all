@@ -70,7 +70,7 @@ all_packages:
   - minimap
   vscode:
   - lukebatchelor.code-bitbucket-pipelines
-  - mauve.terraform
+  - hashicorp.terraform
   - ms-azure-devops.azure-pipelines
   gems: []
 

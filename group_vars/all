@@ -29,7 +29,6 @@ all_packages:
   - tree
   - wget
   brew_cask:
-  - atom
   - docker-edge
   - firefox
   - firefoxnightly
@@ -39,7 +38,6 @@ all_packages:
   - google-featured-photos
   - gpgtools
   - keybase
-  - skype
   - slack
   - spotify
   - tunnelblick
@@ -55,19 +53,6 @@ all_packages:
   - azure-cli
   - ipython
   - virtualenvwrapper
-  atom:
-  - aligner
-  - autocomplete-plus
-  - dash
-  - docblockr
-  - editorconfig
-  - language-docker
-  - language-terraform
-  - language-ini
-  - linter
-  - linter-jshint
-  - merge-conflicts
-  - minimap
   vscode:
   - lukebatchelor.code-bitbucket-pipelines
   - hashicorp.terraform
@@ -100,8 +85,9 @@ all_static_hosts:
   - "127.0.0.1		api.monerise.com"
 
 brew_cleanup_packages:
-  - bonjour-browser
   - atom
+  - bonjour-browser
+  - skype
 
 brew_taps: "{{ all_brew_taps | union( env_brew_taps | default([]) ) }}"
 brew_packages: "{{ all_packages.brew | union( packages.brew | default([]) ) }}"

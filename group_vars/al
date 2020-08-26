@@ -3,6 +3,7 @@ packages:
   - p7zip
   - rbenv
   - ruby
+  - terragrunt
   - vault
   brew_cask:
   - dropbox

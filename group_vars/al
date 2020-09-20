@@ -10,7 +10,6 @@ packages:
   - amazon-workspaces
   pip:
   - aws-shell
-  - awscli
   # This is not python 3 compatible
   # - awsjump
   - cfn-flip

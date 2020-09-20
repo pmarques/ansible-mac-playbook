@@ -50,6 +50,7 @@ all_packages:
   - ansible
   - ansible-lint
   - aws-sam-cli
+  - awscli
   - azure-cli
   - ipython
   - virtualenvwrapper

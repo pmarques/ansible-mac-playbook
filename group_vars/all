@@ -10,6 +10,7 @@ all_packages:
   - autoconf
   - bash-completion
   - curl
+  - gh
   - git
   - go
   - gpg2

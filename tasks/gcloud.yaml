@@ -1,27 +1,39 @@
----
-
 - name: "Install Google Cloud SDK"
-  homebrew_cask: name="{{item}}" state="present" # update_homebrew=Yes
+  homebrew_cask:
+    name: "{{ item }}"
+    state: "present"
   with_items:
   - google-cloud-sdk
 
-- name: "Install Google Cloud SDK components"
-  command: "gcloud components install {{ item }}"
+- name: Install Google Cloud SDK components
+  command: "gcloud components list --format json"
+  changed_when: false
+  check_mode: no
+  register: gcloud_installed_components
+  tags: here
+
+- name: Install Google Cloud SDK components
+  command: "gcloud components install {{ item }}"
   with_items:
   - alpha
   - beta
   - kubectl
+  when: "'Not Installed' in gcloud_installed_components.stdout | from_json | json_query('[?id==`alpha`].state.name')"
+  tags: here
 
-- stat:
-    path: "{{ brew_prefix }}/bin/gcloud"
+- name: Get gcloud path status
+  stat:
+    path: "{{ brew_prefix }}/bin/gcloud"
   register: gcloud_prefix
 
-- set_fact: glcoud_components_bin={{ gcloud_prefix.stat.lnk_source|dirname }}
+- name: Set fact with glcoud components bin path
+  set_fact:
+    glcoud_components_bin: "{{ gcloud_prefix.stat.lnk_source|dirname }}"
 
 - name: "Link gcloud component"
   file:
-    src: "{{ glcoud_components_bin }}/kubectl"
-    dest: "{{ brew_prefix }}/bin/kubectl"
+    src: "{{ glcoud_components_bin }}/kubectl"
+    dest: "{{ brew_prefix }}/bin/kubectl"
     state: link
 
 - name: "Update Google Cloud SDK components"

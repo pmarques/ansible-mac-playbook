@@ -1,10 +1,11 @@
----
-
-- shell: brew --prefix
+- name: Get brew prefix
+  command: brew --prefix
   register: brew_prefix
   changed_when: False
   check_mode: no
 
-- set_fact: brew_prefix="{{ brew_prefix.stdout }}"
+- name: Set brew prefix fact
+  set_fact:
+    brew_prefix: "{{ brew_prefix.stdout }}"
 
 # vi:ft=ansible

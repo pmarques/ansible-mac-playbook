@@ -54,8 +54,9 @@
     tags: [ brew, cask ]
 
   - name: "Remove old brew packages"
-    homebrew: name="{{item}}" state="absent"
-    with_items: "{{ brew_cleanup_packages }}"
+    homebrew:
+      name: "{{ brew_cleanup_packages }}"
+      state: "absent"
     tags: [ cleanup ]
 
   - name: "Homebrew cleanup"
@@ -80,17 +81,27 @@
 
   - include: tasks/mac_preferences.yaml
     tags: [ osx, preferences ]
+
   - include: tasks/gcloud.yaml
     when: "'personal' in group_names"
+    tags: [ gcloud ]
 
   # Required by minikube if VM drive is xhyve
   - include: tasks/docker-machine-driver-xhyve.yaml
     when: "'personal' in group_names"
 
+  - name: "Get VSCode extensions"
+    command: "code --list-extensions"
+    changed_when: false
+    check_mode: no
+    register: vscode_installed_extensions
+    tags: [ vscode ]
+
   # TODO: this is not working, is not installing binaries o0
   - name: "Install VSCode extensions"
-    shell: "code --install-extension {{ item }}"
+    command: "code --install-extension {{ item }}"
     with_items: "{{ vscode_packages }}"
+    when: item not in vscode_installed_extensions.stdout_lines
     tags: [ vscode ]
 
 # vi:ft=ansible

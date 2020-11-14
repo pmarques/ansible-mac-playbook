@@ -86,10 +86,6 @@
     when: "'personal' in group_names"
     tags: [ gcloud ]
 
-  # Required by minikube if VM drive is xhyve
-  - include: tasks/docker-machine-driver-xhyve.yaml
-    when: "'personal' in group_names"
-
   - name: "Get VSCode extensions"
     command: "code --list-extensions"
     changed_when: false

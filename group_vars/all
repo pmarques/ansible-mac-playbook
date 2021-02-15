@@ -26,6 +26,7 @@ all_packages:
   - pv
   - python
   - terraform
+  - tflint
   - tmux
   - tree
   - wget

@@ -37,7 +37,7 @@ all_packages:
   - google-chrome
   - google-chrome-canary
   - google-featured-photos
-  - gpgtools
+  - gpg-suite
   - keybase
   - slack
   - spotify

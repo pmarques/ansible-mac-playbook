@@ -83,7 +83,6 @@
     tags: [ osx, preferences ]
 
   - include: tasks/gcloud.yaml
-    when: "'personal' in group_names"
     tags: [ gcloud ]
 
   - name: "Get VSCode extensions"

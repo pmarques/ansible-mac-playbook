@@ -1,6 +1,5 @@
 packages:
   brew:
-  - carina # Rackepsace continer service  cli
   - iperf3
   - helm
   - libvirt

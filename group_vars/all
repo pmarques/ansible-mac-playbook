@@ -56,6 +56,7 @@ all_packages:
   - azure-cli
   - ipython
   - virtualenvwrapper
+  - yamllint
   vscode:
   - lukebatchelor.code-bitbucket-pipelines
   - hashicorp.terraform

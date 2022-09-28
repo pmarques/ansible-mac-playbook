@@ -1,11 +1,12 @@
+---
 - name: Get brew prefix
-  command: brew --prefix
+  ansible.builtin.command: brew --prefix
   register: brew_prefix
-  changed_when: False
-  check_mode: no
+  changed_when: false
+  check_mode: false
 
 - name: Set brew prefix fact
-  set_fact:
+  ansible.builtin.set_fact:
     brew_prefix: "{{ brew_prefix.stdout }}"
 
 # vi:ft=ansible

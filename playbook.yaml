@@ -1,100 +1,100 @@
 ---
-
-- hosts: mac
-  gather_facts: no
+- name: Configure MacOS
+  hosts: mac
+  gather_facts: false
   tasks:
-  - include: tasks/always.yaml
+  - import_tasks: tasks/always.yaml
     tags: always
     when: "'personal' in group_names"
 
-  - name: "Add taps to Homebrew"
-    homebrew_tap:
+  - name: Add taps to Homebrew
+    community.general.homebrew_tap:
       name: "{{ item }}"
     when: false
     with_items: "{{ brew_taps }}"
     tags: [ brew ]
 
-- name: "Configure Mac OS X, install Dev & Ops tools"
+- name: Configure Mac OS X, install Dev & Ops tools
   hosts: mac
-  gather_facts: no
+  gather_facts: false
   handlers:
-  # Apply Dock settings
+  # Apply Dock settings
   - name: Reload OS X Dock
-    command: "launchctl stop com.apple.Dock.agent"
+    ansible.builtin.command: launchctl stop com.apple.Dock.agent
 
   - name: Reload Finder
-    command: "killall Finder"
+    ansible.builtin.command: killall Finder
 
   tasks:
-  - name: "Update homebrew and upgrade all packages"
-    homebrew: update_homebrew=yes upgrade_all=yes
+  - name: Update homebrew and upgrade all packages
+    community.general.homebrew: update_homebrew=yes upgrade_all=yes
     tags: [ brew ]
 
-  - name: "Configure static hosts"
-    become: yes
-    lineinfile:
+  - name: Configure static hosts
+    become: true
+    ansible.builtin.lineinfile:
       path: /etc/hosts
-      regexp: "^{{ item | regex_escape() }}$"
+      regexp: ^{{ item | regex_escape() }}$
       line: "{{ item }}"
     with_items: "{{ static_hosts }}"
     tags: [ hosts ]
 
-  - name: install tools
-    homebrew:
+  - name: Install tools
+    community.general.homebrew:
       name: "{{ brew_packages }}"
       state: "{{ pkg_state }}"
-      update_homebrew: Yes
+      update_homebrew: true
     tags: [ brew ]
 
-  - name: install nice applications
-    homebrew_cask:
+  - name: Install nice applications
+    community.general.homebrew_cask:
       name: "{{ brew_cask_packages }}"
       state: "{{ pkg_state }}"
-      update_homebrew: Yes
+      update_homebrew: true
     tags: [ brew, cask ]
 
-  - name: "Remove old brew packages"
-    homebrew:
+  - name: Remove old brew packages
+    community.general.homebrew:
       name: "{{ brew_cleanup_packages }}"
-      state: "absent"
+      state: absent
     tags: [ cleanup ]
 
-  - name: "Homebrew cleanup"
-    command: "brew cleanup"
+  - name: Homebrew cleanup
+    ansible.builtin.command: brew cleanup
     register: brew_cleanup
-    changed_when: "brew_cleanup.stdout_lines | length > 0"
+    changed_when: brew_cleanup.stdout_lines | length > 0
     tags: [ brew, cleanup ]
 
-  - name: "Install pip modules"
-    pip:
+  - name: Install pip modules
+    ansible.builtin.pip:
       name: "{{ pip_packages }}"
       state: "{{ pkg_state }}"
     tags: [ pip, python ]
 
-  # TODO: this is not working, is not installing binaries o0
-  - name: "Install Ruby modules"
-    gem:
+  # TODO: this is not working, is not installing binaries o0
+  - name: Install Ruby modules
+    community.general.gem:
       name: "{{ item }}"
       state: "{{ pkg_state }}"
     with_items: "{{ gem_packages }}"
     tags: [ gems, ruby ]
 
-  - include: tasks/mac_preferences.yaml
+  - import_tasks: tasks/mac_preferences.yaml
     tags: [ osx, preferences ]
 
-  - include: tasks/gcloud.yaml
+  - import_tasks: tasks/gcloud.yaml
     tags: [ gcloud ]
 
-  - name: "Get VSCode extensions"
-    command: "code --list-extensions"
+  - name: Get VSCode extensions
+    ansible.builtin.command: code --list-extensions
     changed_when: false
-    check_mode: no
+    check_mode: false
     register: vscode_installed_extensions
     tags: [ vscode ]
 
-  # TODO: this is not working, is not installing binaries o0
-  - name: "Install VSCode extensions"
-    command: "code --install-extension {{ item }}"
+  # TODO: this is not working, is not installing binaries o0
+  - name: Install VSCode extensions
+    ansible.builtin.command: code --install-extension {{ item }}
     with_items: "{{ vscode_packages }}"
     when: item not in vscode_installed_extensions.stdout_lines
     tags: [ vscode ]

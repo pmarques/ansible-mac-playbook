@@ -1,19 +1,20 @@
-- name: "Install Google Cloud SDK"
+---
+- name: Install Google Cloud SDK
   homebrew_cask:
     name: "{{ item }}"
-    state: "present"
+    state: present
   with_items:
   - google-cloud-sdk
 
 - name: Install Google Cloud SDK components
-  command: "gcloud components list --format json"
+  ansible.builtin.command: gcloud components list --format json
   changed_when: false
-  check_mode: no
+  check_mode: false
   register: gcloud_installed_components
   tags: here
 
 - name: Install Google Cloud SDK components
-  command: "gcloud components install {{ item }}"
+  ansible.builtin.command: gcloud components install {{ item }}
   with_items:
   - alpha
   - beta
@@ -22,22 +23,22 @@
   tags: here
 
 - name: Get gcloud path status
-  stat:
+  ansible.builtin.stat:
     path: "{{ brew_prefix }}/bin/gcloud"
   register: gcloud_prefix
 
 - name: Set fact with glcoud components bin path
-  set_fact:
-    glcoud_components_bin: "{{ gcloud_prefix.stat.lnk_source|dirname }}"
+  ansible.builtin.set_fact:
+    glcoud_components_bin: "{{ gcloud_prefix.stat.lnk_source | dirname }}"
 
-- name: "Link gcloud component"
-  file:
+- name: Link gcloud component
+  ansible.builtin.file:
     src: "{{ glcoud_components_bin }}/kubectl"
     dest: "{{ brew_prefix }}/bin/kubectl"
     state: link
 
-- name: "Update Google Cloud SDK components"
-  command: "gcloud components update"
+- name: Update Google Cloud SDK components
+  ansible.builtin.command: gcloud components update
   when: pkg_state == "latest"
 
 # vi:ft=ansible

@@ -1,3 +1,4 @@
+---
 - name: Enable screensaver password
   osx_defaults: domain="com.apple.screensaver" key="askForPassword" type="integer" value="1" state="present"
   notify: Reload OS X Dock

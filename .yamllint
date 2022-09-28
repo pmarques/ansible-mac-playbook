@@ -1,0 +1,15 @@
+---
+# extends: default
+
+rules:
+  braces:
+    min-spaces-inside: 1
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 1
+    max-spaces-inside: 1
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+
+# vi:ft=yaml

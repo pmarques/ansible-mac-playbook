@@ -22,6 +22,7 @@ all_packages:
   - packer # Hashicorp / Vagrant Tool for creating identical machine images for multiple platforms
   - pinentry
   - pkg-config
+  - pinentry-mac
   - pstree
   - pv
   - python

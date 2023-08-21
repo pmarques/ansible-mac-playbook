@@ -22,10 +22,10 @@
   handlers:
   # Apply Dock settings
   - name: Reload OS X Dock
-    ansible.builtin.command: launchctl stop com.apple.Dock.agent
+    ansible.builtin.command: launchctl stop com.apple.Dock.agent # noqa: no-changed-when
 
   - name: Reload Finder
-    ansible.builtin.command: killall Finder
+    ansible.builtin.command: killall Finder # noqa: no-changed-when
 
   tasks:
   - name: Update homebrew and upgrade all packages
@@ -70,7 +70,7 @@
     - cleanup
 
   - name: Homebrew cleanup
-    ansible.builtin.command: brew cleanup
+    ansible.builtin.command: brew cleanup # noqa: no-changed-when
     register: brew_cleanup
     changed_when: brew_cleanup.stdout_lines | length > 0
     tags:
@@ -107,7 +107,7 @@
     - gcloud
 
   - name: Get VSCode extensions
-    ansible.builtin.command: code --list-extensions
+    ansible.builtin.command: code --list-extensions # noqa: no-changed-when
     changed_when: false
     check_mode: false
     register: vscode_installed_extensions
@@ -116,7 +116,7 @@
 
   # TODO: this is not working, is not installing binaries o0
   - name: Install VSCode extensions
-    ansible.builtin.command: code --install-extension {{ item }}
+    ansible.builtin.command: code --install-extension {{ item }} # noqa: no-changed-when
     with_items: "{{ vscode_packages }}"
     when: item not in vscode_installed_extensions.stdout_lines
     tags:

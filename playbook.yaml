@@ -3,7 +3,7 @@
   hosts: mac
   gather_facts: false
   tasks:
-  - import_tasks: tasks/always.yaml
+  - ansible.builtin.import_tasks: tasks/always.yaml
     tags: always
     when: "'personal' in group_names"
 
@@ -27,8 +27,11 @@
 
   tasks:
   - name: Update homebrew and upgrade all packages
-    community.general.homebrew: update_homebrew=yes upgrade_all=yes
-    tags: [ brew ]
+    community.general.homebrew:
+      update_homebrew: true
+      upgrade_all: true
+    tags:
+    - brew
 
   - name: Configure static hosts
     become: true
@@ -79,10 +82,10 @@
     with_items: "{{ gem_packages }}"
     tags: [ gems, ruby ]
 
-  - import_tasks: tasks/mac_preferences.yaml
+  - ansible.builtin.import_tasks: tasks/mac_preferences.yaml
     tags: [ osx, preferences ]
 
-  - import_tasks: tasks/gcloud.yaml
+  - ansible.builtin.import_tasks: tasks/gcloud.yaml
     tags: [ gcloud ]
 
   - name: Get VSCode extensions

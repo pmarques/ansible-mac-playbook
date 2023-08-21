@@ -1,72 +1,146 @@
 ---
 - name: Enable screensaver password
-  osx_defaults: domain="com.apple.screensaver" key="askForPassword" type="integer" value="1" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.screensaver
+    key: askForPassword
+    type: integer
+    value: "1"
+    state: present
   notify: Reload OS X Dock
 
 - name: Set screensaver password immediately
-  osx_defaults: domain="com.apple.screensaver" key="askForPasswordDelay" type="float" value="0" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.screensaver
+    key: askForPasswordDelay
+    type: float
+    value: "0"
+    state: present
   notify: Reload OS X Dock
 
 - name: Configure Default terminal profile
-  osx_defaults: domain="com.apple.Terminal" key="Default Window Settings" type="string"  value="Homebrew" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.Terminal
+    key: Default Window Settings
+    type: string
+    value: Homebrew
+    state: present
   notify: Reload OS X Dock
 
 - name: Configure startup terminal profile
-  osx_defaults: domain="com.apple.Terminal" key="Startup Window Settings" type="string"  value="Homebrew" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.Terminal
+    key: Startup Window Settings
+    type: string
+    value: Homebrew
+    state: present
   notify: Reload OS X Dock
 
 - name: Configure Terminal focus to follow mouse
-  osx_defaults: domain="com.apple.Terminal" key="FocusFollowsMouse" type="string"  value="YES" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.Terminal
+    key: FocusFollowsMouse
+    type: string
+    value: "YES"
+    state: present
 
 # TODO: This is a complex value, how to do this?
 # - osx_defaults: domain="com.apple.Terminal" key="shellExitAction" type="integer"  value="0" state="present"
 
-# Dock configurations
 - name: Autohide OS X dock
-  osx_defaults: domain="com.apple.dock" key="autohide" type="bool"  value="1" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: "1"
+    state: present
   notify: Reload OS X Dock
 
 - name: Set dock size
-  osx_defaults: domain="com.apple.dock" key="tilesize" type="float"  value="38" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: float
+    value: "38"
+    state: present
   notify: Reload OS X Dock
 
 - name: Enable docker magnification
-  osx_defaults: domain="com.apple.dock" key="magnification" type="bool"  value="1" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: bool
+    value: "1"
+    state: present
   notify: Reload OS X Dock
 
 - name: Set dock magnification max size
-  osx_defaults: domain="com.apple.dock" key="largesize" type="float"  value="87" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: largesize
+    type: float
+    value: "87"
+    state: present
   notify: Reload OS X Dock
 
 # Enable zoom using scroll
 - name: Enable zoom using Trackpad Scroll
-  osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="HIDScrollZoomModifierMask" type="integer" value="1048576" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: HIDScrollZoomModifierMask
+    type: integer
+    value: "1048576"
+    state: present
   notify: Reload OS X Dock
 
 - name: Disable MRU (Most recent used spaces)
-  osx_defaults: domain="com.apple.dock" key="mru-spaces" type="bool" value="false" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: "false"
+    state: present
   notify: Reload OS X Dock
 
 # Enable 3-finger drag. (Moving with 3 fingers in any window "chrome" moves the window.)
 # TODO: This requires reboot to work...
 - name: Enable OS X 3 fingers drag (external trackpad)
-  osx_defaults: domain="com.apple.driver.AppleBluetoothMultitouch.trackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: TrackpadThreeFingerDrag
+    type: bool
+    value: "1"
+    state: present
   notify: Reload OS X Dock
 
 - name: Enable OS X 3 fingers drag
-  osx_defaults: domain="com.apple.AppleMultitouchTrackpad" key="TrackpadThreeFingerDrag" type="bool"  value="1" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerDrag
+    type: bool
+    value: "1"
+    state: present
   notify: Reload OS X Dock
 
 - name: Save Screenshots using JPEG
-  osx_defaults: domain="com.apple.screencapture" key="type" type="string"  value="jpg" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.screencapture
+    key: type
+    type: string
+    value: jpg
+    state: present
   notify: Reload OS X Dock
 
 - name: Don't show desktop icons
-  osx_defaults: domain="com.apple.finder" key="CreateDesktop" type="bool"  value="false" state="present"
+  community.general.system.osx_defaults:
+    domain: com.apple.finder
+    key: CreateDesktop
+    type: bool
+    value: "false"
+    state: present
   notify: Reload Finder
 
 - name: Configure Time Machine exclusions
-  osx_defaults:
+  community.general.system.osx_defaults:
     domain: /Library/Preferences/com.apple.TimeMachine.plist
     key: SkipPaths
     type: array

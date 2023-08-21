@@ -1,6 +1,6 @@
 ---
 - name: Install Google Cloud SDK
-  homebrew_cask:
+  community.general.packaging.os.homebrew_cask:
     name: "{{ item }}"
     state: present
   with_items:

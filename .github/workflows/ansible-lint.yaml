@@ -1,0 +1,20 @@
+name: Ansible lint
+on:
+  pull_request:
+    branches:
+      - "main"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ansible_lint:
+    name: Ansible Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@3293b64b939c0de16ef8cb81dd49255e475bf89a # v6.17.2

@@ -3,7 +3,8 @@
   hosts: mac
   gather_facts: false
   tasks:
-  - ansible.builtin.import_tasks: tasks/always.yaml
+  - name: Get brew prefix
+    ansible.builtin.import_tasks: tasks/always.yaml
     tags: always
     when: "'personal' in group_names"
 
@@ -94,12 +95,14 @@
     - gems
     - ruby
 
-  - ansible.builtin.import_tasks: tasks/mac_preferences.yaml
+  - name: Configure Mac OS Preferences
+    ansible.builtin.import_tasks: tasks/mac_preferences.yaml
     tags:
     - osx
     - preferences
 
-  - ansible.builtin.import_tasks: tasks/gcloud.yaml
+  - name: Configure GCloud CLI
+    ansible.builtin.import_tasks: tasks/gcloud.yaml
     tags:
     - gcloud
 

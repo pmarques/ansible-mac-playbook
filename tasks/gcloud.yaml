@@ -1,20 +1,20 @@
 ---
 - name: Install Google Cloud SDK
-  homebrew_cask:
+  community.general.packaging.os.homebrew_cask:
     name: "{{ item }}"
     state: present
   with_items:
   - google-cloud-sdk
 
 - name: Install Google Cloud SDK components
-  ansible.builtin.command: gcloud components list --format json
+  ansible.builtin.command: gcloud components list --format json # noqa: no-changed-when
   changed_when: false
   check_mode: false
   register: gcloud_installed_components
   tags: here
 
 - name: Install Google Cloud SDK components
-  ansible.builtin.command: gcloud components install {{ item }}
+  ansible.builtin.command: gcloud components install {{ item }} # noqa: no-changed-when
   with_items:
   - alpha
   - beta
@@ -38,7 +38,7 @@
     state: link
 
 - name: Update Google Cloud SDK components
-  ansible.builtin.command: gcloud components update
+  ansible.builtin.command: gcloud components update # noqa: no-changed-when
   when: pkg_state == "latest"
 
 # vi:ft=ansible

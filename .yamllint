@@ -3,13 +3,19 @@
 
 rules:
   braces:
+    forbid: non-empty
     min-spaces-inside: 1
     max-spaces-inside: 1
   brackets:
+    forbid: non-empty
     min-spaces-inside: 1
     max-spaces-inside: 1
+  document-start:
+    present: true
+  document-end:
+    present: false
   indentation:
     spaces: 2
-    indent-sequences: consistent
+    indent-sequences: false
 
 # vi:ft=yaml

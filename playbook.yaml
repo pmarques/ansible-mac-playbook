@@ -3,7 +3,8 @@
   hosts: mac
   gather_facts: false
   tasks:
-  - import_tasks: tasks/always.yaml
+  - name: Get brew prefix
+    ansible.builtin.import_tasks: tasks/always.yaml
     tags: always
     when: "'personal' in group_names"
 
@@ -12,7 +13,8 @@
       name: "{{ item }}"
     when: false
     with_items: "{{ brew_taps }}"
-    tags: [ brew ]
+    tags:
+    - brew
 
 - name: Configure Mac OS X, install Dev & Ops tools
   hosts: mac
@@ -20,15 +22,18 @@
   handlers:
   # Apply Dock settings
   - name: Reload OS X Dock
-    ansible.builtin.command: launchctl stop com.apple.Dock.agent
+    ansible.builtin.command: launchctl stop com.apple.Dock.agent # noqa: no-changed-when
 
   - name: Reload Finder
-    ansible.builtin.command: killall Finder
+    ansible.builtin.command: killall Finder # noqa: no-changed-when
 
   tasks:
   - name: Update homebrew and upgrade all packages
-    community.general.homebrew: update_homebrew=yes upgrade_all=yes
-    tags: [ brew ]
+    community.general.homebrew:
+      update_homebrew: true
+      upgrade_all: true
+    tags:
+    - brew
 
   - name: Configure static hosts
     become: true
@@ -37,39 +42,48 @@
       regexp: ^{{ item | regex_escape() }}$
       line: "{{ item }}"
     with_items: "{{ static_hosts }}"
-    tags: [ hosts ]
+    tags:
+    - hosts
 
   - name: Install tools
     community.general.homebrew:
       name: "{{ brew_packages }}"
       state: "{{ pkg_state }}"
       update_homebrew: true
-    tags: [ brew ]
+    tags:
+    - brew
 
   - name: Install nice applications
     community.general.homebrew_cask:
       name: "{{ brew_cask_packages }}"
       state: "{{ pkg_state }}"
       update_homebrew: true
-    tags: [ brew, cask ]
+    tags:
+    - brew
+    - cask
 
   - name: Remove old brew packages
     community.general.homebrew:
       name: "{{ brew_cleanup_packages }}"
       state: absent
-    tags: [ cleanup ]
+    tags:
+    - cleanup
 
   - name: Homebrew cleanup
-    ansible.builtin.command: brew cleanup
+    ansible.builtin.command: brew cleanup # noqa: no-changed-when
     register: brew_cleanup
     changed_when: brew_cleanup.stdout_lines | length > 0
-    tags: [ brew, cleanup ]
+    tags:
+    - brew
+    - cleanup
 
   - name: Install pip modules
     ansible.builtin.pip:
       name: "{{ pip_packages }}"
       state: "{{ pkg_state }}"
-    tags: [ pip, python ]
+    tags:
+    - pip
+    - python
 
   # TODO: this is not working, is not installing binaries o0
   - name: Install Ruby modules
@@ -77,26 +91,35 @@
       name: "{{ item }}"
       state: "{{ pkg_state }}"
     with_items: "{{ gem_packages }}"
-    tags: [ gems, ruby ]
+    tags:
+    - gems
+    - ruby
 
-  - import_tasks: tasks/mac_preferences.yaml
-    tags: [ osx, preferences ]
+  - name: Configure Mac OS Preferences
+    ansible.builtin.import_tasks: tasks/mac_preferences.yaml
+    tags:
+    - osx
+    - preferences
 
-  - import_tasks: tasks/gcloud.yaml
-    tags: [ gcloud ]
+  - name: Configure GCloud CLI
+    ansible.builtin.import_tasks: tasks/gcloud.yaml
+    tags:
+    - gcloud
 
   - name: Get VSCode extensions
-    ansible.builtin.command: code --list-extensions
+    ansible.builtin.command: code --list-extensions # noqa: no-changed-when
     changed_when: false
     check_mode: false
     register: vscode_installed_extensions
-    tags: [ vscode ]
+    tags:
+    - vscode
 
   # TODO: this is not working, is not installing binaries o0
   - name: Install VSCode extensions
-    ansible.builtin.command: code --install-extension {{ item }}
+    ansible.builtin.command: code --install-extension {{ item }} # noqa: no-changed-when
     with_items: "{{ vscode_packages }}"
     when: item not in vscode_installed_extensions.stdout_lines
-    tags: [ vscode ]
+    tags:
+    - vscode
 
 # vi:ft=ansible

@@ -145,14 +145,14 @@
     key: SkipPaths
     type: array
     value:
-      - ~pmarques/Music
-      - ~pmarques/GoPro
-      - ~pmarques/Library/Containers/com.docker.docker
-      - ~pmarques/Google Drive
-      - /Users/Shared/adi
-      - ~pmarques/iCloud Drive (Archive)
-      - ~pmarques/.VirtualBox VMs
-      - ~pmarques/.minikube
+    - ~pmarques/Music
+    - ~pmarques/GoPro
+    - ~pmarques/Library/Containers/com.docker.docker
+    - ~pmarques/Google Drive
+    - /Users/Shared/adi
+    - ~pmarques/iCloud Drive (Archive)
+    - ~pmarques/.VirtualBox VMs
+    - ~pmarques/.minikube
     state: present
 
 # vi:ft=ansible

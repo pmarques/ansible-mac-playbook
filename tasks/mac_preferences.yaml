@@ -39,8 +39,8 @@
   community.general.system.osx_defaults:
     domain: com.apple.Terminal
     key: FocusFollowsMouse
-    type: string
-    value: "YES"
+    type: bool
+    value: true
     state: present
 
 # TODO: This is a complex value, how to do this?

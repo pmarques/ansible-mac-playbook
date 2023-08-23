@@ -83,14 +83,46 @@
   notify: Reload OS X Dock
 
 # Enable zoom using scroll
-- name: Enable zoom using Trackpad Scroll
+- name: Enable OS X Trackpad tracking speed
   community.general.system.osx_defaults:
-    domain: com.apple.AppleMultitouchTrackpad
-    key: HIDScrollZoomModifierMask
-    type: integer
+    # domain: com.apple.trackpad.scaling
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.scaling
+    type: float
+    value: "3"
+    state: present
+
+- name: Enable OS X Trackpad Tap to click
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: Clicking
+    type: boolean
+    value: "1"
+    state: present
+
+- name: Enable OS X Mouse Zoom using mouse / trackpad
+  community.general.system.osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewScrollWheelToggle
+    type: int
+    value: "1"
+    state: present
+
+- name: Enable OS X Mouse Zoom using Command key
+  community.general.system.osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewScrollWheelModifiersInt
+    type: int
     value: "1048576"
     state: present
-  notify: Reload OS X Dock
+
+- name: Enable OS X Mouse Zoom Style per screen
+  community.general.system.osx_defaults:
+    domain: com.apple.universalaccess
+    key: closeViewZoomMode
+    type: int
+    value: "0"
+    state: present
 
 - name: Disable MRU (Most recent used spaces)
   community.general.system.osx_defaults:
@@ -110,7 +142,6 @@
     type: bool
     value: "1"
     state: present
-  notify: Reload OS X Dock
 
 - name: Enable OS X 3 fingers drag
   community.general.system.osx_defaults:
@@ -119,7 +150,38 @@
     type: bool
     value: "1"
     state: present
-  notify: Reload OS X Dock
+
+- name: Enable OS X Two Button mouse
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.mouse
+    key: MouseButtonMode
+    type: string
+    value: TwoButton
+    state: present
+
+- name: Enable OS X Mouse smart zoom
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.mouse
+    key: MouseOneFingerDoubleTapGesture
+    type: int
+    value: "1"
+    state: present
+
+- name: Enable OS X Mouse Mission Control
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.mouse
+    key: MouseTwoFingerDoubleTapGesture
+    type: int
+    value: "3"
+    state: present
+
+- name: Enable OS X Mouse Swipe between pages with one finger and Swipe between full-screen apps with two fingers
+  community.general.system.osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.mouse
+    key: MouseTwoFingerHorizSwipeGesture
+    type: int
+    value: "2"
+    state: present
 
 - name: Save Screenshots using JPEG
   community.general.system.osx_defaults:

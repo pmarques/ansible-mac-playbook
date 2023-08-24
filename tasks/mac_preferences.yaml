@@ -206,15 +206,9 @@
     domain: /Library/Preferences/com.apple.TimeMachine.plist
     key: SkipPaths
     type: array
-    value:
-    - ~pmarques/Music
-    - ~pmarques/GoPro
-    - ~pmarques/Library/Containers/com.docker.docker
-    - ~pmarques/Google Drive
-    - /Users/Shared/adi
-    - ~pmarques/iCloud Drive (Archive)
-    - ~pmarques/.VirtualBox VMs
-    - ~pmarques/.minikube
+    value: "{{ timemachine.skip_paths }}"
     state: present
+  when:
+  - timemachine.skip_paths | length > 0
 
 # vi:ft=ansible

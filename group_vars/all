@@ -1,8 +1,6 @@
 pkg_state: present
 
 all_brew_taps:
-  # https://github.com/chef/chef-dk
-  - chef/chef/chefdk
   - homebrew/cask-versions
 
 all_packages:

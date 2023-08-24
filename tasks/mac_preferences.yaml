@@ -1,4 +1,13 @@
 ---
+- name: Use Dark Theme
+  community.general.system.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleInterfaceStyle
+    type: string
+    value: "Dark"
+    state: present
+  notify: Reload OS X Dock
+
 - name: Enable screensaver password
   community.general.system.osx_defaults:
     domain: com.apple.screensaver

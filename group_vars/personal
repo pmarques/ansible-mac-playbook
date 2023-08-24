@@ -1,3 +1,7 @@
+all_brew_taps:
+  # https://github.com/chef/chef-dk
+  - chef/chef/chefdk
+
 packages:
   brew:
   - iperf3

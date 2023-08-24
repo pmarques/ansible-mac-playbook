@@ -103,5 +103,7 @@ pip_packages: "{{ all_packages.pip | union( packages.pip | default([]) ) }}"
 gem_packages: "{{ all_packages.gems | union( packages.gems | default([]) ) }}"
 vscode_packages: "{{ all_packages.vscode | union( packages.vscode | default([]) ) }}"
 static_hosts: "{{ all_static_hosts | union( env_static_hosts | default([]) ) }}"
+timemachine:
+  skip_paths: []
 
 # vi:ft=ansible

@@ -14,4 +14,15 @@ packages:
   - vlc
   - xca
 
+timemachine:
+  skip_paths:
+  - ~pmarques/Music
+  - ~pmarques/GoPro
+  - ~pmarques/Library/Containers/com.docker.docker
+  - ~pmarques/Google Drive
+  - /Users/Shared/adi
+  - ~pmarques/iCloud Drive (Archive)
+  - ~pmarques/.VirtualBox VMs
+  - ~pmarques/.minikube
+
 # vi:ft=ansible

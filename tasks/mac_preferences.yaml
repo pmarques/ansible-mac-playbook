@@ -94,7 +94,6 @@
 # Enable zoom using scroll
 - name: Enable OS X Trackpad tracking speed
   community.general.system.osx_defaults:
-    # domain: com.apple.trackpad.scaling
     domain: NSGlobalDomain
     key: com.apple.trackpad.scaling
     type: float
@@ -107,6 +106,14 @@
     key: Clicking
     type: boolean
     value: "1"
+    state: present
+
+- name: Enable OS X Mouse tracking speed
+  community.general.system.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.scaling
+    type: float
+    value: "3"
     state: present
 
 - name: Enable OS X Mouse Zoom using mouse / trackpad

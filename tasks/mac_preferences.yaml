@@ -116,6 +116,14 @@
     value: "3"
     state: present
 
+- name: Enable OS X Mouse Swipe Between pages
+  community.general.system.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleEnableMouseSwipeNavigateWithScrolls
+    type: bool
+    value: "true"
+    state: present
+
 - name: Enable OS X Mouse Zoom using mouse / trackpad
   community.general.system.osx_defaults:
     domain: com.apple.universalaccess

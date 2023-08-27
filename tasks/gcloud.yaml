@@ -11,7 +11,6 @@
   changed_when: false
   check_mode: false
   register: gcloud_installed_components
-  tags: here
 
 - name: Install Google Cloud SDK components
   ansible.builtin.command: gcloud components install {{ item }} # noqa: no-changed-when
@@ -20,7 +19,6 @@
   - beta
   - kubectl
   when: "'Not Installed' in gcloud_installed_components.stdout | from_json | json_query('[?id==`alpha`].state.name')"
-  tags: here
 
 - name: Get gcloud path status
   ansible.builtin.stat:

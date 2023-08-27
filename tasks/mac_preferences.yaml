@@ -232,6 +232,7 @@
     type: array
     value: "{{ timemachine.skip_paths }}"
     state: present
+  become: true
   when:
   - timemachine.skip_paths | length > 0
 

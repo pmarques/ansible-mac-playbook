@@ -23,9 +23,8 @@ timemachine:
   - ~pmarques/Music
   - ~pmarques/GoPro
   - ~pmarques/Library/Containers/com.docker.docker
-  - ~pmarques/Google Drive
+  - ~pmarques/Library/CloudStorage/GoogleDrive-patrickfmarques@gmail.com
   - /Users/Shared/adi
-  - ~pmarques/iCloud Drive (Archive)
   - ~pmarques/.VirtualBox VMs
   - ~pmarques/.minikube
 

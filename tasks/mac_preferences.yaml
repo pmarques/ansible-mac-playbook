@@ -225,6 +225,15 @@
     state: present
   notify: Reload Finder
 
+- name: Show finder path bar
+  community.general.system.osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: "true"
+    state: present
+  notify: Reload Finder
+
 - name: Configure Time Machine exclusions
   community.general.system.osx_defaults:
     domain: /Library/Preferences/com.apple.TimeMachine.plist

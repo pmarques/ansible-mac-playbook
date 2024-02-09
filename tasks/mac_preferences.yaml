@@ -91,6 +91,14 @@
     state: present
   notify: Reload OS X Dock
 
+- name: Set widgets style
+  community.general.system.osx_defaults:
+    domain: com.apple.dock
+    key: widgetAppearance
+    type: integer
+    value: "1"
+    state: present
+
 # Enable zoom using scroll
 - name: Enable OS X Trackpad tracking speed
   community.general.system.osx_defaults:
